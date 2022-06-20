@@ -1,0 +1,58 @@
+Results of cspell linter (version 6.1.2)
+See documentation on https://megalinter.github.io/descriptors/spell_cspell/
+-----------------------------------------------
+
+❌ [ERROR] for workspace /tmp/lint
+Linter raw log:
+1/9 ./tmp/lint/.github/CODEOWNERS 1435.67ms
+2/9 ./tmp/lint/.github/ISSUE_TEMPLATE/Issue Template.yml 54.71ms X
+/tmp/lint/.github/ISSUE_TEMPLATE/Issue Template.yml:53:130 - Unknown word (backticks)
+3/9 ./tmp/lint/.github/ISSUE_TEMPLATE/bug_report.md 84.66ms X
+/tmp/lint/.github/ISSUE_TEMPLATE/bug_report.md:6:13 - Unknown word (manideepgolla)
+4/9 ./tmp/lint/.github/philips-repo.yaml 9.99ms
+5/9 ./tmp/lint/.github/workflows/prcheck.yml 16.38ms X
+/tmp/lint/.github/workflows/prcheck.yml:14:15 - Unknown word (amannn)
+/tmp/lint/.github/workflows/prcheck.yml:18:15 - Unknown word (wagoid)
+/tmp/lint/.github/workflows/prcheck.yml:18:22 - Unknown word (commitlint)
+6/9 ./tmp/lint/.github/workflows/sync-template.yml 62.87ms X
+/tmp/lint/.github/workflows/sync-template.yml:4:12 - Unknown word (autosync)
+/tmp/lint/.github/workflows/sync-template.yml:53:55 - Unknown word (mkdir)
+/tmp/lint/.github/workflows/sync-template.yml:78:25 - Unknown word (reinartz)
+/tmp/lint/.github/workflows/sync-template.yml:83:39 - Unknown word (updatepr)
+7/9 ./tmp/lint/.github/workflows/user.yml 13.42ms X
+/tmp/lint/.github/workflows/user.yml:12:15 - Unknown word (sushichop)
+8/9 ./tmp/lint/README.md 5.78ms
+9/9 ./tmp/lint/test 2.76ms
+CSpell: Files checked: 9, Issues found: 10 in 5 files
+
+
+You can skip this misspellings by defining the following .cspell.json file at the root of your repository
+Of course, please correct real typos before :)
+
+{
+    "version": "0.2",
+    "language": "en",
+    "ignorePaths": [
+        "**/node_modules/**",
+        "**/vscode-extension/**",
+        "**/.git/**",
+        ".vscode",
+        "package-lock.json",
+        "report"
+    ],
+    "words": [
+        "amannn",
+        "autosync",
+        "backticks",
+        "commitlint",
+        "manideepgolla",
+        "mkdir",
+        "reinartz",
+        "sushichop",
+        "updatepr",
+        "wagoid"
+    ]
+}
+
+
+You can also copy-paste report/.cspell.json at the root of your repository
