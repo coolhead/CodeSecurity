@@ -2,7 +2,7 @@ name: MegaLinter
 'on':
   push:
     branches:
-      - raghu-megalinter
+      - main
 jobs:
   build:
     name: MegaLinter
