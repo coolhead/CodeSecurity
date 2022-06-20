@@ -1,0 +1,41 @@
+name: MegaLinter
+'on':
+  push:
+    branches:
+      - raghu-megalinter
+jobs:
+  build:
+    name: MegaLinter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
+          fetch-depth: 0        
+      - name: MegaLinter
+        uses: megalinter/megalinter@v5
+        env:
+          APPLY_FIXES: all
+          DEFAULT_BRANCH: ${{ inputs.default_branch }}
+          VALIDATE_ALL_CODEBASE: true
+#          ENABLE_LINTERS: REPOSITORY_GITLEAKS
+#          REPOSITORY_GITLEAKS_CONFIG_FILE: .gitleaks.toml
+          ENABLE_LINTERS: CREDENTIALS_SECRETLINT
+          CREDENTIALS_SECRETLINT_CONFIG_FILE: .secretlintrc.json
+          CREDENTIALS_SECRETLINT_RULES_PATH: .
+          
+          #VALIDATE_ALL_CODEBASE: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+      
+      # Upload MegaLinter artifacts
+      - name: Archive production artifacts
+        if: ${{ success() }} || ${{ failure() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: MegaLinter reports
+          path: |
+            report
+            mega-linter.log          
+          
+          
+
