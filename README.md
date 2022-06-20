@@ -1,2 +1,2 @@
-Synergy-test-repo
+CODE SCAN USING MEGA LINTER
 
